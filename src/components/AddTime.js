@@ -35,7 +35,7 @@ const AddTime = ()=>{
             <h1 className="title is-6">Add Time Entry</h1>
            
             <div className="field">
-                <label htmlFor="">Name of the task</label>
+                <label >Name of the task</label>
                 <div className="control">
                 <input className="input" type="text" value={title}  onChange={(evt)=>{
                     setTitle(evt.target.value)
@@ -44,7 +44,7 @@ const AddTime = ()=>{
             </div>
 
             <div className="field">
-                <label htmlFor="">Time required</label>
+                <label >Time required</label>
                <div className="control">
                 <input  type="text" className="input" value={time} onChange={(e)=>{
                     setTime(e.target.value)

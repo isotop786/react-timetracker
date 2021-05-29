@@ -1,6 +1,8 @@
 import React,{useState,useEffect} from 'react'
 import firebase from '../firebase';
 
+import Sort from './Sort'
+
 
 const SORT_OPTIONS = {
     'TIME_ASC' : {column: 'time_seconds',direction:'asc'},
@@ -44,39 +46,32 @@ const TimeList = ()=>{
     const time = useTime(sortBy)
     
     return(
-        <div className="column">
+        <div className="column  is-desktop p-3 ">
            
-            <h2 className="title is-5 ">Time List</h2>
+            <h2 className="title is-5 has-text-centered">Time List</h2>
        
-            <div>
-                <label for="">Sort By: </label>{' '}
-                <div className="select is-rounded">
-                <select value={sortBy} 
-                onChange={e=> setSortBy(e.currentTarget.value) }
-                
-                >
-                    <option value="TIME_ASC">Time (fastest first)</option>
-                    <option value="TIME_DESC">Time (slowest first)</option>
-                    <option disabled>-------</option>
-                    <option value="TITLE_ASC">Title (a-z)</option>
-                    <option value="TITLE_DESC">Title (z-a)</option>
-                </select>
-                </div>
-                </div>
-                <div className="p-2">
+           <Sort sort={sortBy} setSort={setSortBy}/>
+                <div className="p-2 has-text-centered ">
+                    
                     {time.length  ?  (
-                        <ol>
-                        {time.map(t=>(
-                             <li style={{padding:5}} key={t.id}>
-                             <div>
-                                 <span style={{marginRight:20}}>{t.title} </span>
-                                 <span>------</span>
-                                 <span style={{marginLeft:20}}>{t.time_seconds}</span>
-                             </div>
-                           </li>
+                        <table className="table is-fullwidth is-striped 
+                        is-hoverable
+                        ">
+                    <thead>
+                        <tr>
+                            <th>Task Title</th>
+                            <th>Time to Complete Task</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {time.map(e=>(
+                            <tr>
+                                <td>{e.title}</td>
+                                <td>{e.time_seconds} Seconds</td>
+                            </tr>
                         ))}
-                      
-                    </ol>
+                    </tbody>
+                    </table>
                     )
                     : (
                         <div className="is-loading has-background-light p-3 

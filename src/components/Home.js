@@ -6,10 +6,8 @@ import AddTime from './AddTime';
 const Home = () =>{
     return(
         <div className="columns is-centered mt-4 p-3">
-           <div className="column is-half box p-2">
-                <h1 className="title has-text-centered mb-3">
-                    Just Do it
-                </h1>
+           <div className="column is-four-fifths is-desktop box p-2">
+               
 
                 <TimeList/>
 
