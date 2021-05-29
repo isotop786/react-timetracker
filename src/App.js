@@ -26,9 +26,8 @@ useEffect(()=>{
 
     <style jsx>
     {`
-      html,body,button,select,option{
-        font-family: 'Lora', serif;
-font-family: 'Nunito', sans-serif;
+      html,body,button,input,select,option{
+        font-family: 'Ubuntu', sans-serif;
       }
 
     `}

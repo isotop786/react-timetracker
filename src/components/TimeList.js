@@ -71,7 +71,7 @@ const TimeList = ({show})=>{
                     <tbody>
                         {time.map(e=>(
                             <tr>
-                                <td>{e.title}</td>
+                                <td >{e.title}</td>
                                 <td>{e.time_seconds} Seconds</td>
                             </tr>
                         ))}
