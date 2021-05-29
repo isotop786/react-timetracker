@@ -1,7 +1,6 @@
-import React,{useState} from 'react'
+import React from 'react'
 
 const Sort = ({sort,setSort})=>{
-    const [sortBy, setSortBy] =useState('TIME_ASC');
   return (
     <div className="">
          <div className="has-text-centered">

@@ -30,8 +30,8 @@ const AddTime = ()=>{
     }
 
     return(
-        <div className="columns  p-3">
-        <div className="column notification  is-four-fifths">
+        <div className="columns  is-mobile is-centered mt-3 mb-5">
+        <div className="column notification  is-four-fifths p-5">
             <h1 className="title is-6">Add Time Entry</h1>
            
             <div className="field">

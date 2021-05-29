@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react'
 import firebase from '../firebase';
 
 import Sort from './Sort'
+import AddList from './AddTime'
 
 
 const SORT_OPTIONS = {
@@ -18,7 +19,7 @@ const useTime = (sort_by="TIME_ASC")=>{
     // const times = useTime();
    
     useEffect(()=>{
-
+      
         firebase.firestore()
         .collection('tasks')
         .orderBy(SORT_OPTIONS[sort_by].column,SORT_OPTIONS[sort_by].direction)
@@ -40,16 +41,20 @@ const useTime = (sort_by="TIME_ASC")=>{
 }
 
 
-const TimeList = ()=>{  
+const TimeList = ({show})=>{  
     
     const [sortBy,setSortBy] = useState('TIME_ASC')
-    const time = useTime(sortBy)
+    const time = useTime(sortBy,show)
     
     return(
         <div className="column  is-desktop p-3 ">
-           
-            <h2 className="title is-5 has-text-centered">Time List</h2>
-       
+            {show ? (
+            <AddList/>
+            )
+            : ''
+        }
+            <h2 className="title is-5 has-text-centered">Time List {show}</h2>
+      
            <Sort sort={sortBy} setSort={setSortBy}/>
                 <div className="p-2 has-text-centered ">
                     
